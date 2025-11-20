@@ -1,0 +1,11 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: similar-products-api
+
+server:
+  port: 5000
+
+external-api:
+  url: http://localhost:3001
