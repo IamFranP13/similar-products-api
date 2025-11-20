@@ -20,11 +20,12 @@ public class AppConfig {
                 .connectTimeout(Duration.ofSeconds(1))
                 .build();
 
-        JdkClientHttpRequestFactory requestFactory = new JdkClientHttpRequestFactory(httpClient);
-        requestFactory.setReadTimeout(Duration.ofSeconds(5));
+        JdkClientHttpRequestFactory requestFactory = new JdkClientHttpRequestFactory(
+                java.util.Objects.requireNonNull(httpClient));
+        requestFactory.setReadTimeout(java.util.Objects.requireNonNull(Duration.ofSeconds(5)));
 
         return RestClient.builder()
-                .baseUrl(externalApiUrl)
+                .baseUrl(java.util.Objects.requireNonNull(externalApiUrl))
                 .requestFactory(requestFactory)
                 .build();
     }
